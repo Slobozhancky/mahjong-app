@@ -1,34 +1,30 @@
 import styles from "./App.module.css";
 import Card from "./components/Card/Card";
+import { checkNumOfPrime } from "./utils.js";
+import { useState } from "react";
 
+let primesNumbers = checkNumOfPrime(60);
 function App() {
-  let primesNumbers = [];
-  function checkNumOfPrime() {
-    for (let i = 0; i < 60; i++) {
-      if (isPrime(i) === true) {
-        primesNumbers.push(i);
-      }
-    }
+  const [freeze, setFrizeClass] = useState([]);
 
-    return primesNumbers
-      .concat(primesNumbers)
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 32);
+  function cardSelectHandler(elemID) {
+    setFrizeClass([...freeze, elemID]);
+    console.log(freeze[0]);
+    console.log(freeze[1]);
+
+    if (freeze[0] !== freeze[1]) {
+      alert(123);
+    }
   }
 
-  function isPrime(num) {
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) {
-        return false;
-      }
-    }
-    return num > 1;
-  }
-
-  primesNumbers = checkNumOfPrime();
-
-  let items = primesNumbers.map((elem, index) => (
-    <Card id={elem} key={index} number={elem} />
+  const items = primesNumbers.map((elem, index) => (
+    <Card
+      id={elem}
+      key={index}
+      number={elem}
+      setElemToStateFreeze={setFrizeClass}
+      checkElem={cardSelectHandler}
+    />
   ));
 
   return (
