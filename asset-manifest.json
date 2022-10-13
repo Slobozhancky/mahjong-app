@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mahjong-app/static/css/main.d43b11b5.css",
-    "main.js": "/mahjong-app/static/js/main.39b59e73.js",
+    "main.css": "/mahjong-app/static/css/main.9adad034.css",
+    "main.js": "/mahjong-app/static/js/main.e073d826.js",
     "static/js/787.4282f789.chunk.js": "/mahjong-app/static/js/787.4282f789.chunk.js",
     "index.html": "/mahjong-app/index.html",
-    "main.d43b11b5.css.map": "/mahjong-app/static/css/main.d43b11b5.css.map",
-    "main.39b59e73.js.map": "/mahjong-app/static/js/main.39b59e73.js.map",
+    "main.9adad034.css.map": "/mahjong-app/static/css/main.9adad034.css.map",
+    "main.e073d826.js.map": "/mahjong-app/static/js/main.e073d826.js.map",
     "787.4282f789.chunk.js.map": "/mahjong-app/static/js/787.4282f789.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d43b11b5.css",
-    "static/js/main.39b59e73.js"
+    "static/css/main.9adad034.css",
+    "static/js/main.e073d826.js"
   ]
 }
