@@ -21,14 +21,15 @@ const Card = (props) => {
       setHideClass((hideClass) => (hideClass = ""));
     }
 
-    props.checkElem(event.target.attributes.dataId.nodeValue);
+    props.checkElem(event.target);
+    console.log(event.target);
 
     setStatus(!isActive);
   }
 
   return (
     <div
-      className={`${"card"} ${isActive ? "active" : null} ${hideClass}`}
+      className={`${"card"} ${isActive ? "active" : ''} ${hideClass}`}
       dataId={props.id}
       onClick={toggleClass}
     >

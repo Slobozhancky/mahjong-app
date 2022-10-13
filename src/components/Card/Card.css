@@ -21,7 +21,16 @@
     color: #000;
 }
 
-.hide {
+.card.hide {
     color: white;
+}
+
+.card.active.freeze {
+    border-color: #000;
+}
+
+.card.active.freeze:hover {
+    box-shadow: none;
+    cursor: auto;
 }
   
