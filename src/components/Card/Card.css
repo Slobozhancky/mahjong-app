@@ -18,6 +18,12 @@
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.active {
+.card.active {
     border-color: #ED5517;
+    color: #000;
 }
+
+.hide {
+    color: white;
+}
+  

@@ -10,7 +10,10 @@ function App() {
       }
     }
 
-    return (primesNumbers.concat(primesNumbers).sort(() => 0.5 - Math.random())).slice(0,32);
+    return primesNumbers
+      .concat(primesNumbers)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 32);
   }
 
   function isPrime(num) {
@@ -24,7 +27,9 @@ function App() {
 
   primesNumbers = checkNumOfPrime();
 
-  let items = primesNumbers.map((elem) => <Card id={elem} number={elem} />);
+  let items = primesNumbers.map((elem, index) => (
+    <Card id={elem} key={index} number={elem} />
+  ));
 
   return (
     <div className="App">
