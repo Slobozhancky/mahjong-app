@@ -6,30 +6,30 @@ import { useState } from "react";
 let primesNumbers = checkNumOfPrime(60);
 function App() {
   let [freeze, setFreeze] = useState();
-  let arr = [];
+  let targetElements = [];
 
   function cardSelectHandler(event) {
-    arr.push(event);
-    console.log(arr);
+    targetElements.push(event);
+    console.log(targetElements);
 
-    if (arr.length === 2) {
-      let firstId = arr[0].attributes.dataId.nodeValue;
-      let secondId = arr[1].attributes.dataId.nodeValue;
+    if (targetElements.length === 2) {
+      let firstId = targetElements[0].attributes.dataId.nodeValue;
+      let secondId = targetElements[1].attributes.dataId.nodeValue;
       if (firstId === secondId) {
-        makeFreeze(arr);
+        makeFreeze(targetElements);
 
-        arr = [];
+        targetElements = [];
       } else {
-        makeHide(arr);
+        makeHide(targetElements);
 
-        arr = [];
+        targetElements = [];
       }
     }
   }
 
-  function makeFreeze(a) {
+  function makeFreeze(params) {
     const interval = setInterval(() => {
-      a.forEach((e) => {
+      params.forEach((e) => {
         e.classList.add("freeze");
       });
     }, 500);
@@ -38,9 +38,9 @@ function App() {
     }, 500);
   }
 
-  function makeHide(a) {
+  function makeHide(params) {
     const interval = setInterval(() => {
-      a.forEach((e) => {
+      params.forEach((e) => {
         e.classList.add("hide");
         e.classList.remove("active");
       });
