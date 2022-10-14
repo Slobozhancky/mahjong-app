@@ -25,11 +25,11 @@
     color: white;
 }
 
-.card.active.freeze {
+.card.freeze {
     border-color: #000;
 }
 
-.card.active.freeze:hover {
+.card.freeze:hover {
     box-shadow: none;
     cursor: auto;
 }

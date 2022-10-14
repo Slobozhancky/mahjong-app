@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 const Card = (props) => {
   const [isActive, setStatus] = useState(false);
   const [hideClass, setHideClass] = useState("");
-
-
+  const [toggleFunc, setToggleFunc] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
       setHideClass((hideClass) => (hideClass = "hide"));
-    }, 3000);
+      setToggleFunc((toggleFunc) => (toggleFunc = toggleClass));
+    }, 5000);
     setTimeout(() => {
       clearInterval(interval);
-    }, 3000);
+    }, 5000);
   }, []);
 
   function toggleClass(event) {
@@ -22,18 +22,17 @@ const Card = (props) => {
     }
 
     props.checkElem(event.target);
-    console.log(event.target);
 
     setStatus(!isActive);
   }
 
   return (
     <div
-      className={`${"card"} ${isActive ? "active" : ''} ${hideClass}`}
+      className={`${"card"} ${isActive ? "active" : ""} ${hideClass}`}
       dataId={props.id}
-      onClick={toggleClass}
+      onClick={toggleFunc}
     >
-      {props.number}
+      {props.id}
     </div>
   );
 };

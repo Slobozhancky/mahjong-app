@@ -5,7 +5,7 @@ import { useState } from "react";
 
 let primesNumbers = checkNumOfPrime(60);
 function App() {
-  // const [freeze, setFrizeClass] = useState([1]);
+  let [freeze, setFreeze] = useState();
   let arr = [];
 
   function cardSelectHandler(event) {
@@ -16,21 +16,51 @@ function App() {
       let firstId = arr[0].attributes.dataId.nodeValue;
       let secondId = arr[1].attributes.dataId.nodeValue;
       if (firstId === secondId) {
-        arr.forEach((e) => e.classList.add("freeze"));
+        makeFreeze(arr);
 
-        alert(true);
-        return arr = [];
+        arr = [];
       } else {
-        arr.forEach((e) => e.classList.add("hide"));
-        // }
+        makeHide(arr);
 
-        return arr = [];
+        arr = [];
       }
     }
   }
 
+  function makeFreeze(a) {
+    const interval = setInterval(() => {
+      a.forEach((e) => {
+        e.classList.add("freeze");
+      });
+    }, 500);
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 500);
+  }
+
+  function makeHide(a) {
+    const interval = setInterval(() => {
+      a.forEach((e) => {
+        e.classList.add("hide");
+        e.classList.remove("active");
+      });
+
+      (function getFreezeStatus(params) {
+        setFreeze((freeze) => (freeze = false));
+      })();
+    }, 500);
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 500);
+  }
+
   const items = primesNumbers.map((elem, index) => (
-    <Card id={elem} key={index} number={elem} checkElem={cardSelectHandler} />
+    <Card
+      id={elem}
+      key={index}
+      freezeStatus={freeze}
+      checkElem={cardSelectHandler}
+    />
   ));
 
   return (
